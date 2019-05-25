@@ -45,3 +45,14 @@ Things you may want to cover:
 - has_many :members
 - has_many :groups, through: :members
 - has_many :chats
+
+## groupsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|integer|null: false, foreign_key: true|
+
+### Association
+- has_many :members
+- has_many :users, through: :members
+
