@@ -56,3 +56,12 @@ Things you may want to cover:
 - has_many :members
 - has_many :users, through: :members
 
+## chatsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false, foreign_key: true|
+|image|image|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
