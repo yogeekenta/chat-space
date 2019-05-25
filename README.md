@@ -33,3 +33,15 @@ Things you may want to cover:
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, foreign_key: true|
+|email|string|null: false, foreign_key: true|
+
+### Association
+- has_many :members
+- has_many :groups, through: :members
+- has_many :chats
