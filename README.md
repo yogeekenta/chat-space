@@ -39,8 +39,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false, foreign_key: true|
-|image|image|null: false, foreign_key: true|
+|text|text|null: false|
+|image|image|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
