@@ -16,8 +16,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
-|email|string|null: false, foreign_key: true|
+|name|string|null: false|
+|email|string|null: false|
 
 ### Association
 - has_many :members
