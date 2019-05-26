@@ -28,7 +28,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|integer|null: false, foreign_key: true|
+|name|integer|null: false|
 
 ### Association
 - has_many :members
