@@ -1,0 +1,80 @@
+%body
+  .flash-box
+    グループを作成しました
+  %h1
+    .side-header
+      %p.side-header__user-name
+        kenta
+      %ul.side-header__user-menu
+        %li.side-header__user-menu__list
+          %i.fa.fa-edit
+        %li.side-header__user-menu__list
+          %i.fa.fa-cog
+    .main-header
+      %p.main-header__current-group
+        test
+      %p.main-header__edit-botton
+        edit
+      %p.main-header__member-name
+        Member:Kenta
+  .content.clearfix
+    .side-content
+      %p.side-content__group
+        test
+      %p.side-content__last-message
+        test
+      %p.side-content__group
+        test
+      %p.side-content__last-message
+        test
+    .main-content
+      .all-chats
+        .all-chats__chat1
+          %p.all-chats__chat1__user-name
+            kenta
+          %p.all-chats__chat1__time
+            2019/06/02(Sun) 12:02:19
+        %p.chat1-user-message
+          test
+        .all-chats__chat2
+          %p.all-chats__chat2__user-name
+            kenta
+          %p.all-chats__chat2__time
+            2019/06/02(Sun) 12:02:20
+        %p.chat2-user-message
+          test
+      .form
+        %form
+          .input-box
+            %input.input-box__message{:placeholder => "type s message",:type => "text"}
+            %label
+              %i.fa.fa-image
+              %input.input-box__image{:type => "file",}
+            %input.input-box__send-botton{:type => "submit", :value => "Send"}
+ 
+-#  <input type="submit" name="commit" value="Send" class="new-message__submit-btn" data-disable-with="Send">
+
+
+  -#           <input placeholder="type a message" class="input-box__text" type="text" name="message[content]" id="message_content">
+  -# -# .wrapper
+  -#   .chat-side
+  -#     .side-header
+  -#       %p.side-header__user-name kenta
+  -#       %ul.user-menu
+  -#         %li.user-menu__edit-user
+  -#           %a{:href => "/groups/new"}
+  -#             %i.fa.fa-edit
+  -#         %li.user-menu__new-group
+  -#           %a{:href => "/users/714/edit"}
+  -#             %i.fa.fa-cog
+  -# .groups
+
+-# <label>
+-#       <!-- ▽見せる部分 -->
+-#       <span class="filelabel" title="ファイルを選択">
+-#          <img src="camera-orange-rev.png" width="32" height="26" alt="＋画像">
+-#          選択
+-#       </span>
+-#       <!-- ▽本来の選択フォームは隠す -->
+-#       <input type="file" name="datafile" id="filesend">
+-#    </label>

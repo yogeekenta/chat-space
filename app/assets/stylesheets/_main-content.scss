@@ -1,0 +1,45 @@
+.main-content {
+  width: calc(100% - 300px);
+  float: right;
+  height: 100%;
+  position: relative;
+}
+
+.all-chats{
+  background-color: #fafafa;
+  height: calc(100% - 90px);
+  padding: 0 40px;
+  &__chat1{
+    display: flex;
+    padding: 46px 0 10px 0;
+    &__user-name{
+      @include user-name();
+    }
+    &__time{
+      @include time();
+    }
+  }
+  &__chat2{
+    display: flex;
+    padding: 40px 0 10px 0;
+    &__user-name{
+      @include user-name();
+    }
+    &__time{
+      @include time();
+    }
+  }
+}
+
+.chat1-user-message{
+  font-size: 14px;
+  color: $chatsNameAndGroupColor;
+  }
+
+.chat2-user-message{
+  font-size: 14px;
+  color: $chatsNameAndGroupColor;
+}
+
+
+

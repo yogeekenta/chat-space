@@ -1,0 +1,12 @@
+
+@mixin user-name(){
+  font-size: 16px;
+  font-weight: bold;
+  color: $chatsNameAndGroupColor;
+}
+
+@mixin time(){
+  font-size: 12px;
+  color: $detailColor;
+  padding: 0 0 0 10px;
+}
