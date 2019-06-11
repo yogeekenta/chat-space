@@ -18,6 +18,11 @@
     padding: 0 10px;
     border : 0;
   }
+  &__label{
+  position: absolute;
+  right: 165px;
+  bottom: 30px;
+  }
   &__image{
     display: none;
   }
@@ -30,10 +35,4 @@
     color: white;
     cursor: pointer;
   }
-}
-
-label{
-  position: absolute;
-  right: 165px;
-  bottom: 30px;
 }

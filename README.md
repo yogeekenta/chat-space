@@ -1,7 +1,7 @@
 # README
 
 
-## membersテーブル
+## group_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -20,9 +20,9 @@
 |email|string|null: false, unique: true|
 
 ### Association
-- has_many :members
-- has_many :groups, through: :members
-- has_many :chats
+- has_many :group_users
+- has_many :groups, through: :group_users
+- has_many :messages
 
 ## groupsテーブル
 
@@ -31,11 +31,11 @@
 |name|integer|null: false|
 
 ### Association
-- has_many :members
-- has_many :users, through: :members
-- has_many :chats
+- has_many :group_users
+- has_many :users, through: :group_users
+- has_many :messages
 
-## chatsテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|

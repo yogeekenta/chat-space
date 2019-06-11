@@ -1,6 +1,7 @@
 @import "./reset";
 @import "./config/variable";
 @import "./mixin/file";
+@import "./modules/flash";
 @import "./html_body";
 @import "./flash-box";
 @import "./side-header";
@@ -10,5 +11,5 @@
 @import "./main-content";
 @import "./form";
 @import "font-awesome";
-
+@import "./user";
 
