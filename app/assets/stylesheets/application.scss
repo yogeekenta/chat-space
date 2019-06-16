@@ -2,6 +2,9 @@
 @import "./config/variable";
 @import "./mixin/file";
 @import "./modules/flash";
+@import "./modules/group";
+@import "./modules/side_bar";
+@import "./modules/chat";
 @import "./html_body";
 @import "./flash-box";
 @import "./side-header";
@@ -9,7 +12,6 @@
 @import "./content";
 @import "./side-content";
 @import "./main-content";
-@import "./form";
 @import "font-awesome";
 @import "./user";
-@import "./modules/group";
+@import "./form";

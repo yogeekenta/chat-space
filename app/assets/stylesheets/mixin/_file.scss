@@ -10,3 +10,8 @@
   color: $detailColor;
   padding: 0 0 0 10px;
 }
+
+
+@mixin flexbox(){
+  display: flex;
+}

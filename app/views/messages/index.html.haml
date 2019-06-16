@@ -1,55 +1,9 @@
 %body
   .flash-box
     グループを作成しました
-  %h1
-    .side-header
-      %p.side-header__user-name
-        = current_user.name
-      %ul.side-header__user-menu
-        %li.side-header__user-menu__list
-          = link_to new_group_path do
-            = fa_icon 'pencil-square-o', class: 'icon'
-        %li.side-header__user-menu__list
-          = link_to edit_user_path(current_user) do
-            = fa_icon 'cog', class: 'icon'
-    .main-header
-      %p.main-header__current-group
-        test
-      %p.main-header__edit-botton
-        edit
-      %p.main-header__member-name
-        Member:Kenta
-  .content.clearfix
-    .side-content
-      %p.side-content__group
-        test
-      %p.side-content__last-message
-        test
-      %p.side-content__group
-        test
-      %p.side-content__last-message
-        test
-    .main-content
-      .all-chats
-        .all-chats__chat1
-          %p.all-chats__chat1__user-name
-            kenta
-          %p.all-chats__chat1__time
-            2019/06/02(Sun) 12:02:19
-        %p.chat1-user-message
-          test
-        .all-chats__chat2
-          %p.all-chats__chat2__user-name
-            kenta
-          %p.all-chats__chat2__time
-            2019/06/02(Sun) 12:02:20
-        %p.chat2-user-message
-          test
-      .form
-        %form
-          .input-box
-            %input.input-box__message{:placeholder => "type s message",:type => "text"}
-            %label.input-box__label
-              %i.fa.fa-image
-              %input.input-box__image{:type => "file",}
-            %input.input-box__send-botton{:type => "submit", :value => "Send"}
+  = render 'shared/side_bar'
+  .chat
+    = render 'messages/chat'
+    .messages
+      = render @messages
+    = render 'messages/form'
