@@ -2,11 +2,7 @@ $(function(){
   function buildHTML(message){
     var img = JSON.stringify(message.image.url)
     function buildimage(img){
-      if (img == "null") {
-        return ``
-      } else {
-        return `<img class="lower-message__image" src=${img}/>`
-      }
+      return  img == "null" ? ``: `<img class="lower-message__image" src=${img}/>`;
     }
     var html = `<div class="message">
                   <div class="upper-message">
