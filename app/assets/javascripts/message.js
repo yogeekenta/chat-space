@@ -1,51 +1,29 @@
 $(function(){
   function buildMessageHTML(message){
     
+    var content = null ? ``: `<p class="lower-message__content">${message.content}</p>`;
     var img = JSON.stringify(message.image.url)
     function buildimage(img){
       return  img == "null" ? ``: `<img class="lower-message__image" src=${img}/>`;
     }
     
-    function buildcommon(message){
-      var commonhtml = `<div class="message" data-message-id="${message.id}">
-                          <div class="upper-message">
-                            <div class="upper-message__user-name">
-                            ${message.user_name}
-                            </div>
-                            <div class="upper-message__date">
-                            ${message.created_at}
-                            </div>
-                          </div>`
-      return  commonhtml;
-    }
-
-    if (message.content && message.image.url) {
-      var html = `${buildcommon(message)}
-                   <div class="lower-message">
-                      <p class="lower-message__content">
-                      ${message.content}
-                      </p>
-                      ${buildimage(img)}
-                   </div>
-                  </div>`
-    } else if (message.content) {
-      var html = `${buildcommon(message)}
-                    <div class="lower-message">
-                      <p class="lower-message__content">
-                      ${message.content}
-                      </p>
-                    </div>
-                   </div>`
-    } else if (message.image.url) {
-      var html = `${buildcommon(message)}
-                    <div class="lower-message">
-                    ${buildimage(img)}
-                    </div>
-                  </div>`
-    };
-    return html;
+    var html = `<div class="message" data-message-id="${message.id}">
+                        <div class="upper-message">
+                          <div class="upper-message__user-name">
+                          ${message.user_name}
+                          </div>
+                          <div class="upper-message__date">
+                          ${message.created_at}
+                          </div>
+                        </div>
+                        <div class="lower-message">
+                          ${content}
+                          ${buildimage(img)}
+                       </div>
+                      </div>`
+    return  html;
   }
-  
+
   $('.new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
