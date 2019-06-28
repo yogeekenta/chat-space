@@ -1,25 +1,57 @@
 $(function(){
-  function buildHTML(message){
+  function buildMessageHTML(message){
     var img = JSON.stringify(message.image.url)
     function buildimage(img){
       return  img == "null" ? ``: `<img class="lower-message__image" src=${img}/>`;
     }
-    var html = `<div class="message">
-                  <div class="upper-message">
-                    <div class="upper-message__user-name">
-                    ${message.user_name}
+    if (message.content && message.image.url) {
+      var html = `<div class="message" data-message-id =${message.id}>
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                        ${message.user_name}
+                      </div>
+                      <div class="upper-message__date">
+                        ${message.created_at}
+                      </div>
+                   </div>
+                   <div class="lower-message">
+                      <p class="lower-message__content">
+                      ${message.content}
+                      </p>
+                      ${buildimage(img)}
+                   </div>
+                  </div>`
+    } else if (message.content) {
+      var html = `<div class="message" data-message-id="${message.id}">
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                      ${message.user_name}
+                      </div>
+                      <div class="upper-message__date">
+                      ${message.created_at}
+                      </div>
                     </div>
-                    <div class="upper-message__date">
-                    ${message.date}
+                    <div class="lower-message">
+                      <p class="lower-message__content">
+                      ${message.content}
+                      </p>
                     </div>
-                  </div>
-                  <div class="lower-message">
-                    <p class="lower-message__content">
-                    ${message.content}
-                    </p>
+                   </div>`
+    } else if (message.image.url) {
+      var html = `<div class="message" data-message-id="${message.id}">
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                      ${message.user_name}
+                      </div>
+                      <div class="upper-message__date">
+                      ${message.created_at}
+                      </div>
+                    </div>
+                    <div class="lower-message">
                     ${buildimage(img)}
-                  </div>
-                </div>`
+                    </div>
+                  </div>`
+    };
     return html;
   }
   $('.new_message').on('submit', function(e){
@@ -35,7 +67,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var html = buildHTML(data);
+      var html = buildMessageHTML(data);
       $('.messages').append(html)
       document.new_message.reset()
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
@@ -47,4 +79,28 @@ $(function(){
       $(".form__submit").removeAttr("disabled");
       });
   })
-});
+
+  var reloadMessages = function () {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      var last_message_id = $('.message:last').data("message-id");
+
+      $.ajax({ 
+        url: "api/messages",
+        type: 'get', 
+        dataType: 'json',
+        data: {last_id: last_message_id}
+      })
+      .done(function (messages) {
+        messages.forEach(function (message) {
+          var insertHTML = buildMessageHTML(message);
+          $('.messages').append(insertHTML);
+        })
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      })
+      .fail(function () {
+        alert('自動更新に失敗しました');
+      });
+    }
+  };
+  setInterval(reloadMessages, 5000);
+  });
