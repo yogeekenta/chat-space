@@ -60,7 +60,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'sassc-rails'
+gem 'sassc','~> 2.0.1'
 
 
 group :production do
